@@ -1,11 +1,9 @@
 package com.example.hazemnabil.islamictodo2;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,10 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddTask2 extends AppCompatActivity
@@ -26,11 +26,21 @@ public class AddTask2 extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task2);
+        ReplaceFont.replaceDefaultFont(this,"DEFAULT","NotoKufiArabic-Regular.ttf");
+        Typeface myfont =  Typeface.createFromAsset(this.getAssets(),"NotoKufiArabic-Regular.ttf");
+        TextView t = (TextView) findViewById(R.id.textView2);
+        t.setTypeface(myfont);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Spinner dd_day = (Spinner)findViewById(R.id.dd_day) ;
-        ArrayAdapter<String> myadapter = new ArrayAdapter<String>(AddTask2.this, R.layout.activity_add_task2,getResources().getStringArray(R.array.Days));
+        Spinner dd_day = (Spinner)findViewById(R.id.sp_TimeName) ;
+        ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this,R.array.TimeNames,android.R.layout.simple_spinner_item);
+        myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dd_day.setAdapter(myadapter);
+
+
+
+
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override

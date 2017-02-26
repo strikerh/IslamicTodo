@@ -27,11 +27,13 @@
             android:orientation="vertical"
             >
 
+
             <TextView
                 android:text="المهمة"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView2"
+                android:fontFamily="DEFAULT"
 
                 />
 
@@ -41,7 +43,9 @@
                 android:ems="10"
                 android:id="@+id/txt_Task"
                 android:hint="اكتب مهمتك"
-                android:inputType="text" />
+                android:background="@drawable/text_field_bg"
+                android:inputType="text"
+                android:fontFamily="DEFAULT" />
 
             <TextView
                 android:text="التوصيف"
@@ -124,6 +128,8 @@
                             android:layout_weight="1.5
                             " />
 
+
+
                         <RadioButton
                             android:text="هجري"
                             android:layout_width="wrap_content"
@@ -150,78 +156,40 @@
                         >
                         <LinearLayout
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            >
+                            android:layout_weight="2.76"
+                            android:weightSum="1">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="يوم"
+                                android:text="التاريخ"
                                 />
-                           <Spinner
-                               android:id="@+id/dd_day"
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content"
-                               />
 
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            >
                             <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="شهر"
-                                />
-                            <Spinner
-                                android:id="@+id/dd_month"
+                                android:text="20 / 10 /  2017"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                />
+                                android:id="@+id/txt_date" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
+                            android:layout_width="41dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
 
 
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="سنة"
-                                />
-                            <Spinner
-                                android:id="@+id/dd_year"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                            android:layout_gravity="left">
 
-                                />
+                            <Button
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
 
-                        </LinearLayout>
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                                android:drawableTop="@drawable/ic_insert_invitation_black_24dp"
 
-
-                            >
-                           <Button
-                               android:layout_width="match_parent"
-                               android:layout_height="42dp"
-
-                               android:drawableTop="@drawable/ic_insert_invitation_black_24dp"
-
-                               android:onClick="openCalender" />
+                                android:onClick="openCalender"
+                                android:gravity="left" />
 
                         </LinearLayout>
 
@@ -235,7 +203,7 @@
                         >
                         <LinearLayout
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             >
@@ -245,54 +213,49 @@
                                 android:text="الوقت"
 
                                 />
+
                             <Spinner
-                                android:id="@+id/dd_time"
-                                android:layout_width="match_parent"
+                                android:layout_width="152dp"
                                 android:layout_height="wrap_content"
-                                />
+                                android:id="@+id/sp_TimeName" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1.2"
+                            android:layout_weight="1"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="الساعة"
+                                android:text="الوقت"
                                 />
-                            <Spinner
-                                android:id="@+id/dd_hour"
+
+                            <TextView
+                                android:text="غير محدد"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
-                                />
+                                android:id="@+id/txt_Time" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:orientation="vertical"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1.2"
+
 
 
                             >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="الدقيقة"
-                                />
-                            <Spinner
-                                android:id="@+id/dd_min"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                            <Button
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
 
-                                />
+                                android:drawableTop="@drawable/ic_schedule_black_24dp"
 
+                                android:onClick="openCalender" />
                         </LinearLayout>
 
 
@@ -339,14 +302,91 @@
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_weight="1"
-                    android:layout_height="100px"
+                    android:layout_height="wrap_content"
                     android:id="@+id/group_repeat">
 
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:text="المدة"
+                            android:layout_width="83dp"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView4" />
+
+                        <Spinner
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/spinner"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="175dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="عدد المرات"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView5" />
+
+                            <Spinner
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/spinner2" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="حتي تاريخ"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/textView6" />
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:inputType="date"
+
+                                    android:id="@+id/editText"
+                                    android:layout_weight="1" />
+
+                                <Button
+                                    android:layout_width="37dp"
+                                    android:layout_height="42dp"
+
+                                    android:drawableTop="@drawable/ic_insert_invitation_black_24dp"
+
+                                    android:onClick="openCalender"
+                                    android:gravity="left" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
 
             <!-- ======================= Importent Group-->
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"

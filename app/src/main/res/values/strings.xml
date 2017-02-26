@@ -9,15 +9,15 @@
     <string name="Add">إضافة</string>
     <string name="title_activity_add_task2">إضافة مهمة جديدة</string>
 
-    <string-array name="Days">
-        <item>gfh</item>
-        <item>fgh</item>
-        <item>fgh</item>
-        <item>fgh</item>
-        <item>fgh</item>
-        <item>fgh</item>
-        <item>ffgh</item>
-        <item>fgfgh</item>
+    <string-array name="TimeNames">
+        <item>الفجر</item>
+        <item>الشروق</item>
+        <item>الظهر</item>
+        <item>العصر</item>
+        <item>المغرب</item>
+        <item>العشاء</item>
+        <item>منتصف الليل</item>
+
     </string-array>
     <string name="title_activity_settings">Settings</string>
 
