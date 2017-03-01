@@ -1,15 +1,13 @@
 package com.example.hazemnabil.islamictodo2;
 
-import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import java.sql.Time;
 
 /**
  * Created by hazem.nabil on 16/02/2017.
