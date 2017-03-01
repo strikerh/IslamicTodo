@@ -12,7 +12,8 @@ import java.lang.reflect.Field;
 public class ReplaceFont {
     public static void replaceDefaultFont (Context context, String nameOfFontBeingReplaced, String nameOfFontInAssets){
         Typeface customFontTypeFace = Typeface.createFromAsset(context.getAssets(),nameOfFontInAssets);
-        replaceFont(nameOfFontBeingReplaced, customFontTypeFace);
+        //replaceFont(nameOfFontBeingReplaced, customFontTypeFace);
+        replaceFontT(1, customFontTypeFace);
 
     }
 
@@ -25,6 +26,24 @@ public class ReplaceFont {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+        }
+
+    }
+    private static void replaceFontT(int h, Typeface customFontTypeFace) {
+        int v = Typeface.class.getDeclaredFields().length;
+
+        for (int i =0 ; i<v ; i++) {
+            try {
+
+                Field myfield = Typeface.class.getDeclaredFields()[i];
+                if(myfield.getType() == Typeface.class.getDeclaredFields()[8].getType() ) {
+                    myfield.setAccessible(true);
+                    myfield.set(null, customFontTypeFace);
+                }
+
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
 
     }

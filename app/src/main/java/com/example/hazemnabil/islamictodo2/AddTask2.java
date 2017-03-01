@@ -12,33 +12,90 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hazemnabil.islamictodo2.spinner.Spinner_adapter;
 
 public class AddTask2 extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    //////////////////////////
+    private Typeface myFont;
+    public LinearLayout pnl_week;
+    /////////////////////////
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task2);
-        ReplaceFont.replaceDefaultFont(this,"DEFAULT","NotoKufiArabic-Regular.ttf");
-        Typeface myfont =  Typeface.createFromAsset(this.getAssets(),"NotoKufiArabic-Regular.ttf");
-        TextView t = (TextView) findViewById(R.id.textView2);
-        t.setTypeface(myfont);
+        ViewGroup gr =(ViewGroup)findViewById(R.id.content_add_task2);
+
+        //--- Font ---
+        myFont = Typeface.createFromAsset(getAssets(), "NotoKufiArabic-Regular.ttf");
+        ChangeFonts hh = new ChangeFonts(this,gr);
+
+
+        //--- toolbar ---
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        //  ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this,R.array.TimeNames,android.R.layout.simple_spinner_item);
+        // ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this,R.array.TimeNames,R.layout.tools_spinner_2);
+
+        // myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //myadapter.setDropDownViewResource(R.layout.tools_spinner);
+
+        //--- Spinners ---
+        Spinner_adapter myadapter;
         Spinner dd_day = (Spinner)findViewById(R.id.sp_TimeName) ;
-        ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this,R.array.TimeNames,android.R.layout.simple_spinner_item);
-        myadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        myadapter = new Spinner_adapter(this,R.array.TimeNames,dd_day,myFont,R.layout.my_spinner_style);
         dd_day.setAdapter(myadapter);
 
+        //////////////////////////////////////////
 
+        Spinner RepeatType = (Spinner) findViewById(R.id.sp_RepeatType);
+        //String[] mTestArray = getResources().getStringArray(R.array.TimeNames);
+        myadapter = new Spinner_adapter(this,R.array.repeatType,RepeatType,myFont,R.layout.my_spinner_style);
+        RepeatType.setAdapter(myadapter);
+         pnl_week =   (LinearLayout) findViewById(R.id.pnl_week);
+        RepeatType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 Spinner spinner = (Spinner) parent;
+                 String value = parent.getItemAtPosition(position).toString();
+
+                 if(position == 1)
+                 {
+                     pnl_week.setVisibility(View.VISIBLE);
+                 }
+                 else
+                 {
+                     pnl_week.setVisibility(View.GONE);
+                 }
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parent) {
+
+             }
+         });
+
+
+                //////////////////////////////////////////
+
+
+//        TextView b = (TextView) dd_day.getSelectedItem();
+//        b.setText("sfsfsdf");
+
+                //  Toast.makeText(this,b.toString(),Toast.LENGTH_SHORT).show();
+                //  hh.overrideFonts(this,gr);
 
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -50,7 +107,7 @@ public class AddTask2 extends AppCompatActivity
 //            }
 //        });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -59,6 +116,12 @@ public class AddTask2 extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+
+
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -141,4 +204,12 @@ public class AddTask2 extends AppCompatActivity
         Toast.makeText(getBaseContext(), "Time is:"+th+":"+tm ,Toast.LENGTH_SHORT).show();
     }
 
+/////////////////////////////////////////////////////////////
+
+
+
+
 }
+
+
+

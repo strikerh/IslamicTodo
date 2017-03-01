@@ -19,6 +19,13 @@
         <item>منتصف الليل</item>
 
     </string-array>
+    <string-array name="repeatType">
+        <item>يومي</item>
+        <item>أسبوعي</item>
+        <item>شهري</item>
+
+
+    </string-array>
     <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->

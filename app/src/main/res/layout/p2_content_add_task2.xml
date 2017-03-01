@@ -5,122 +5,110 @@
     android:id="@+id/content_add_task2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/lightbg"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:layoutDirection="rtl"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hazemnabil.islamictodo2.AddTask2"
-    android:layoutDirection="rtl"
     tools:showIn="@layout/p2_app_bar_add_task2">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+
+        >
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin">
 
 
             <TextView
-                android:text="المهمة"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/textView2"
-                android:fontFamily="DEFAULT"
+                style="@style/label"
+                android:text="المهمة"
+
 
                 />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
                 android:id="@+id/txt_Task"
+                style="@style/txtBox"
+                android:ems="10"
                 android:hint="اكتب مهمتك"
-                android:background="@drawable/text_field_bg"
-                android:inputType="text"
-                android:fontFamily="DEFAULT" />
+                android:inputType="text" />
 
             <TextView
-                android:text="التوصيف"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/textView3"
-
-                />
+                style="@style/label"
+                android:text="التوصيف" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:id="@+id/editText45454"
+                style="@style/txtBox"
                 android:layout_height="66dp"
-                android:inputType="textMultiLine"
                 android:ems="10"
-                android:id="@+id/editText2"
                 android:hint="اكتب وصف مهمتك"
+                android:inputType="textMultiLine"
                 android:textSize="16sp" />
 
-           <!-- ======================= Time Group-->
+            <!-- ======================= Time Group-->
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/TimeGroup"
+                style="@style/section"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/TimeGroup">
+                android:orientation="vertical"
+
+                >
 
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    style="@style/sectionTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:text="الوقت"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="الوقت" />
 
                     <Switch
-                        android:text="ليس لها وقت محدد"
+                        android:id="@+id/sw_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/sw_time"
                         android:layout_weight="1"
-                        android:textAlignment="viewEnd"
-                        android:textAllCaps="false"
+                        android:checked="false"
                         android:onClick="onSwitch_time"
-                        android:checked="false" />
+                        android:text="ليس لها وقت محدد"
+                        android:textAlignment="viewEnd"
+                        android:textAllCaps="false" />
 
                 </LinearLayout>
 
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/group_time"
-                    android:background="@color/lightbg"
 
-                    android:paddingEnd="10dp"
-                    android:paddingStart="20dp"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
+                    android:id="@+id/group_time"
+                    style="@style/sectionBox"
                     android:visibility="visible">
 
 
-
                     <RadioGroup
-                        android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-
-
-
-                        >
+                        android:orientation="horizontal">
 
                         <Space
                             android:layout_width="wrap_content"
@@ -129,85 +117,67 @@
                             " />
 
 
-
                         <RadioButton
-                            android:text="هجري"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:id="@+id/hh_radioButton3"
-                            android:layout_weight="1" />
-
-                        <RadioButton
-                            android:text="ميلادي"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="هجري" />
+
+                        <RadioButton
                             android:id="@+id/hh_radioButton2"
-                            android:layout_weight="1" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="ميلادي" />
+
                         <Space
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1" />
                     </RadioGroup>
 
-                    <LinearLayout
-                         android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+                    <LinearLayout style="@style/toolWithLabelGroup">
+
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2.76"
-                            android:weightSum="1">
+                            android:orientation="vertical">
+
                             <TextView
+                                style="@style/label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="التاريخ"
-                                />
+                                android:text="التاريخ" />
 
-                            <TextView
-                                android:text="20 / 10 /  2017"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/txt_date" />
+                                android:orientation="horizontal">
 
-                        </LinearLayout>
+                                <TextView
+                                    android:id="@+id/txt_date"
+                                    style="@style/g_txtWithBtn_txt"
+                                    android:text="20 / 10 /  2017" />
 
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="41dp"
-                            android:layout_height="wrap_content"
+                                <Button
+                                    style="@style/g_txtWithBtn_btn"
+                                    android:drawableTop="@drawable/ic_insert_invitation1_black_24dp"
+                                    android:onClick="openCalender" />
 
-
-                            android:layout_gravity="left">
-
-                            <Button
-                                android:layout_width="42dp"
-                                android:layout_height="42dp"
-
-                                android:drawableTop="@drawable/ic_insert_invitation_black_24dp"
-
-                                android:onClick="openCalender"
-                                android:gravity="left" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            >
+                    <LinearLayout style="@style/RowGroup">
+
+                        <LinearLayout style="@style/toolWithLabelGroup">
+
                             <TextView
+                                style="@style/label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="الوقت"
@@ -215,49 +185,37 @@
                                 />
 
                             <Spinner
-                                android:layout_width="152dp"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/sp_TimeName" />
+                                android:id="@+id/sp_TimeName"
+                                style="@style/spinner" />
+
 
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            >
+                        <LinearLayout style="@style/toolWithLabelGroup">
+
                             <TextView
+                                style="@style/label"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="الوقت"
-                                />
+                                android:text="الوقت" />
 
-                            <TextView
-                                android:text="غير محدد"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/txt_Time" />
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/txt_time"
+                                    style="@style/g_txtWithBtn_txt"
+                                    android:text="ليس لها وقت" />
+
+                                <Button
+                                    style="@style/g_txtWithBtn_btn"
+                                    android:drawableTop="@drawable/ic_access_time_black_24dp"
+                                    android:onClick="openCalender" />
+                            </LinearLayout>
 
                         </LinearLayout>
-
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-
-
-                            >
-                            <Button
-                                android:layout_width="42dp"
-                                android:layout_height="42dp"
-
-                                android:drawableTop="@drawable/ic_schedule_black_24dp"
-
-                                android:onClick="openCalender" />
-                        </LinearLayout>
-
 
 
                     </LinearLayout>
@@ -269,29 +227,31 @@
 
             <!-- ======================= Repeat Group-->
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/RepeatGroup"
+                style="@style/section"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/RepeatGroup">
+                android:orientation="vertical">
 
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    style="@style/sectionTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:text="التكرار"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="التكرار" />
 
                     <Switch
-                        android:text="غير مكرر"
+                        android:id="@+id/sw_repeat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/sw_repeat"
                         android:layout_weight="1"
+                        android:text="غير مكرر"
                         android:textAlignment="viewEnd"
                         android:textAllCaps="false" />
 
@@ -299,87 +259,135 @@
 
 
                 <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/group_repeat">
+                    android:id="@+id/group_repeat"
+                    style="@style/sectionBox">
 
-                    <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <LinearLayout style="@style/RowGroup">
 
-                        <TextView
-                            android:text="المدة"
-                            android:layout_width="83dp"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/textView4" />
+                        <LinearLayout style="@style/toolWithLabelGroup"
 
-                        <Spinner
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:id="@+id/spinner"
-                            android:layout_weight="1" />
+                            >
 
+                            <TextView
+                                android:id="@+id/textView4"
+                                style="@style/label"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="المدة" />
+
+
+                            <Spinner
+                                android:id="@+id/sp_RepeatType"
+                                style="@style/spinner"
+                                android:layout_width="match_parent"
+                                android:layout_weight="0.5" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+
+                        style="@style/RowGroup">
 
                         <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="175dp"
-                            android:layout_height="wrap_content">
+                            style="@style/toolWithLabelGroup"
+                            android:layout_weight="1.5">
 
                             <TextView
-                                android:text="عدد المرات"
+                                android:id="@+id/textView5"
+                                style="@style/label"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView5" />
+                                android:text="عدد المرات" />
 
-                            <Spinner
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:id="@+id/spinner2" />
+
+                            <EditText
+
+                                android:id="@+id/num"
+                                style="@style/txtBox"
+                                android:ems="10"
+                                android:hint="0"
+                                android:inputType="number"
+                                android:textAlignment="center" />
+
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:orientation="vertical"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                        <LinearLayout style="@style/toolWithLabelGroup">
 
                             <TextView
-                                android:text="حتي تاريخ"
+                                android:id="@+id/textView6"
+                                style="@style/label"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/textView6" />
+                                android:text="حتي تاريخ" />
 
                             <LinearLayout
-                                android:orientation="horizontal"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
 
                                 <EditText
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:inputType="date"
-
                                     android:id="@+id/editText"
-                                    android:layout_weight="1" />
+                                    style="@style/g_txtWithBtn_txt"
+                                    android:hint="00/00/0000"
+                                    android:inputType="date" />
 
                                 <Button
-                                    android:layout_width="37dp"
-                                    android:layout_height="42dp"
-
-                                    android:drawableTop="@drawable/ic_insert_invitation_black_24dp"
-
+                                    style="@style/g_txtWithBtn_btn"
+                                    android:drawableTop="@drawable/ic_insert_invitation1_black_24dp"
                                     android:onClick="openCalender"
-                                    android:gravity="left" />
+
+                                    />
                             </LinearLayout>
                         </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        style="@style/RowGroup"
+                        android:id="@+id/pnl_week">
+
+
+                        <ToggleButton
+
+                            android:textOn="سبت"
+                            android:textOff="سبت"
+                            style="@style/weeklyBtn"
+                            />
+                        <ToggleButton
+
+                            android:textOn="أحد"
+                            android:textOff="أحد"
+                            style="@style/weeklyBtn"
+                            />
+                        <ToggleButton
+
+                            android:textOn="أثنين"
+                            android:textOff="أثنين"
+                            style="@style/weeklyBtn"
+                            />
+                        <ToggleButton
+
+                            android:textOn="ثلاثاء"
+                            android:textOff="ثلاثاء"
+                            style="@style/weeklyBtn"
+                            />
+                        <ToggleButton
+
+                            android:textOn="أربعاء"
+                            android:textOff="أربعاء"
+                            style="@style/weeklyBtn"
+                            />
+                        <ToggleButton
+
+                            android:textOn="خميس"
+                            android:textOff="خميس"
+                            style="@style/weeklyBtn"
+                            />
+                        <ToggleButton
+
+                            android:textOn="جمعة"
+                            android:textOff="جمعة"
+                            style="@style/weeklyBtn"
+                            />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -388,29 +396,31 @@
             <!-- ======================= Importent Group-->
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/IpmortentGroup"
+                style="@style/section"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/IpmortentGroup">
+                android:orientation="vertical">
 
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    style="@style/sectionTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:text="درجة الأهمية"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="درجة الأهمية" />
 
                     <Switch
-                        android:text="غير محدد"
+                        android:id="@+id/sw_importent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/sw_importent"
                         android:layout_weight="1"
+                        android:text="غير محدد"
                         android:textAlignment="viewEnd"
                         android:textAllCaps="false" />
 
@@ -418,11 +428,12 @@
 
 
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:id="@+id/group_importent"
+                    style="@style/sectionBox"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="100px"
-                    android:id="@+id/group_importent">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                 </LinearLayout>
 
@@ -430,29 +441,31 @@
 
             <!-- ======================= ٍSubTasks Group-->
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/SubTasksGroup"
+                style="@style/section"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/SubTasksGroup">
+                android:orientation="vertical">
 
 
                 <LinearLayout
-                    android:orientation="horizontal"
+                    style="@style/sectionTitle"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:text="المهام الفرعية"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:text="المهام الفرعية" />
 
                     <Switch
-                        android:text="ليس بها مهام فرعية"
+                        android:id="@+id/sw_subtasks"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/sw_subtasks"
                         android:layout_weight="1"
+                        android:text="ليس بها مهام فرعية"
                         android:textAlignment="viewEnd"
                         android:textAllCaps="false" />
 
@@ -460,17 +473,16 @@
 
 
                 <LinearLayout
-                    android:orientation="vertical"
+                    android:id="@+id/group_subtask"
+                    style="@style/sectionBox"
                     android:layout_width="match_parent"
-                    android:layout_weight="1"
                     android:layout_height="100px"
-                    android:id="@+id/group_subtask">
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                 </LinearLayout>
 
             </LinearLayout>
-
-
 
 
         </LinearLayout>
