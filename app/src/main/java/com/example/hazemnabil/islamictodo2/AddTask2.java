@@ -17,7 +17,6 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.Toast;
 
 import com.example.hazemnabil.islamictodo2.spinner.Spinner_adapter;
 
@@ -28,6 +27,13 @@ public class AddTask2 extends AppCompatActivity
     //////////////////////////
     private Typeface myFont;
     public LinearLayout pnl_week;
+
+    private GroupSection sTime ;
+
+    private GroupSection sRepeat ;
+    private GroupSection sImportant ;
+    private GroupSection sSubtasks;
+
     /////////////////////////
 
     @Override
@@ -35,6 +41,21 @@ public class AddTask2 extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task2);
         ViewGroup gr =(ViewGroup)findViewById(R.id.content_add_task2);
+
+
+          sTime = new GroupSection(
+                R.id.TimeSection, R.id.TimeTitle, R.id.TimeTitleTxt, R.id.TimeTitleSw, R.id.TimeBox);
+
+          sRepeat = new GroupSection(
+                R.id.RepeatSection, R.id.RepeatTitle, R.id.RepeatTitleTxt, R.id.RepeatTitleSw, R.id.RepeatBox);
+
+          sImportant = new GroupSection(
+                R.id.ImportantSection, R.id.ImportantTitle, R.id.ImportantTitleTxt, R.id.ImportantTitleSw, R.id.ImportantBox);
+
+          sSubtasks = new GroupSection(
+                R.id.SubTasksSection, R.id.SubTasksTitle, R.id.SubTasksTitleTxt, R.id.SubTasksTitleSw, R.id.SubTasksBox);
+
+
 
         //--- Font ---
         myFont = Typeface.createFromAsset(getAssets(), "NotoKufiArabic-Regular.ttf");
@@ -44,6 +65,9 @@ public class AddTask2 extends AppCompatActivity
         //--- toolbar ---
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //--- Close Groups ---
+        CloseAllGroups();
 
 
         //  ArrayAdapter<CharSequence> myadapter = ArrayAdapter.createFromResource(this,R.array.TimeNames,android.R.layout.simple_spinner_item);
@@ -120,9 +144,6 @@ public class AddTask2 extends AppCompatActivity
 
 
 
-
-
-
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -180,29 +201,102 @@ public class AddTask2 extends AppCompatActivity
         return true;
     }
 
+
+    // ---- Group Switchs (Show & Hide Groups)  -----
+    private void CloseAllGroups() {  //in OnCreate up
+        LinearLayout h1 = (LinearLayout) findViewById(sTime.secBox_id);
+        LinearLayout h2 = (LinearLayout) findViewById(sRepeat.secBox_id);
+        LinearLayout h3 = (LinearLayout) findViewById(sImportant.secBox_id);
+        LinearLayout h4 = (LinearLayout) findViewById(sSubtasks.secBox_id);
+        h1.setVisibility(View.GONE);
+        h2.setVisibility(View.GONE);
+        h3.setVisibility(View.GONE);
+        h4.setVisibility(View.GONE);
+
+    }
+
+class  GroupSection {
+    public int mainSec_id;
+    public int secTitle_id;
+    public int title_txt_id;
+    public int title_switch_id;
+    public int title_icon_id;
+    public int secBox_id;
+
+    public String title_swich_txt;
+    public String title_txt_txt;
+
+    public GroupSection(int mainSec_id){
+
+    }
+    public GroupSection(int mainSec_id,int secTitle_id, int title_txt_id, int title_switch_id, int secBox_id) {
+        this.mainSec_id = mainSec_id;
+        this.secTitle_id = secTitle_id;
+        this.title_txt_id = title_txt_id;
+        this.title_switch_id = title_switch_id;
+        this.title_icon_id = title_icon_id;
+        this.secBox_id = secBox_id;
+    }
+}
+
+
     public void onSwitch_time(View view) {
-        Switch sw1 = (Switch) findViewById(R.id.sw_time) ;
-        LinearLayout group_time = (LinearLayout) findViewById(R.id.group_time);
+        Switchat(sTime.title_switch_id,sTime.secBox_id,"ليس لها وقت محدد");
+    }
+    public void onSwitch_repeat(View view) {
+        Switchat(sRepeat.title_switch_id,sRepeat.secBox_id,"غير مكرر");
+    }
+    public void onSwitch_important(View view) {
+        Switchat(sImportant.title_switch_id,sImportant.secBox_id,"غير محدد");
+    }
+    public void onSwitch_subtasks(View view) {
+        Switchat(sSubtasks.title_switch_id,sSubtasks.secBox_id,"ليس بها مهام فرعية");
+    }
+
+    private void Switchat(int swichName,int parentGroup,String txt){
+        Switch sw1 = (Switch) findViewById(swichName) ;
+        LinearLayout group_time = (LinearLayout) findViewById(parentGroup);
 
         if (sw1.isChecked()){
             group_time.setVisibility(View.VISIBLE);
             sw1.setText("");
+
         }else{
             group_time.setVisibility(View.GONE);
-            sw1.setText("ليس لها وقت محدد");
+            sw1.setText(txt);
         }
     }
+    // --------- END -------------- Group Switchs (Show & Hide Groups)  ----- /\
 
+
+    // ---- Show POPs windows (DatePiker - TimePiker)  ----- \/
     public void openCalender(View view) {
         FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
         PopDatePiker pop = new PopDatePiker();
+        pop.SetOutputLocation(R.id.txt_date);
         pop.show( manager,null);
 
 
     }
-    public  void SetDate(int th,int tm) {
-        Toast.makeText(getBaseContext(), "Time is:"+th+":"+tm ,Toast.LENGTH_SHORT).show();
+
+    public void openCalender2(View view) {
+        FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
+        PopDatePiker pop = new PopDatePiker();
+        pop.SetOutputLocation(R.id.repeatDate);
+        pop.show( manager,null);
+
+
     }
+
+    public void openTimePiker(View view) {
+        FragmentTransaction manager = getSupportFragmentManager().beginTransaction();
+        PopTimePiker pop = new PopTimePiker();
+        pop.SetOutputLocation(R.id.txt_time);
+        pop.show( manager,null);
+
+
+    }
+
 
 /////////////////////////////////////////////////////////////
 
