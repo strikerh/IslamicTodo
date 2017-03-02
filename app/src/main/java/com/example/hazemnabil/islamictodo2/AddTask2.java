@@ -245,6 +245,9 @@ class  GroupSection {
     public void onSwitch_time(View view) {
         Switchat(sTime.title_switch_id,sTime.secBox_id,"ليس لها وقت محدد");
         ///
+
+
+        ///////
     }
     public void onSwitch_repeat(View view) {
         Switchat(sRepeat.title_switch_id,sRepeat.secBox_id,"غير مكرر");
