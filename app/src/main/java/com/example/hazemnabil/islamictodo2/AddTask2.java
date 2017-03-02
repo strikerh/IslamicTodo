@@ -228,6 +228,8 @@ class  GroupSection {
 
     public GroupSection(int mainSec_id){
 
+
+
     }
     public GroupSection(int mainSec_id,int secTitle_id, int title_txt_id, int title_switch_id, int secBox_id) {
         this.mainSec_id = mainSec_id;
